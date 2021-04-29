@@ -1,0 +1,9 @@
+<div class="list" style="padding: 50px;">
+  <h1>My List</h1>
+  <div class="container" style="display: flex; padding: 24px; justify-content: space-around; ">
+    <% @lists.each do |list| %>
+      <%= link_to list.name, list_path(list),  id: "button"%>
+    <% end %>
+  </div>
+    <%= link_to "Create a New List", new_list_path, class: "btn btn-light"%>
+</div>

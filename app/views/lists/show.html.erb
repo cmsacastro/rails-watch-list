@@ -1,0 +1,16 @@
+<div class="list" style="padding: 50px;">
+  <h1><%=@list.name%></h1>
+</div>
+
+<%= link_to "Add Movie",  new_list_bookmark_path(@list), class: "btn btn-light"%>
+<div class="container_movie" style="display: flex; padding: 24px; justify-content: space-around;">
+  <% @bookmarks.each do |bookmark|%>
+    <div>
+      <h3><%= bookmark.movie.title %></h3>
+      <p><%= bookmark.movie.overview %></p>
+      <p>"<%= bookmark.comment %>"</p>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Back", lists_path, class: "btn btn-light"%>
