@@ -1,16 +1,23 @@
 <div class="list" style="padding: 50px;">
   <h1><%=@list.name%></h1>
-</div>
 
-<%= link_to "Add Movie",  new_list_bookmark_path(@list), class: "btn btn-light"%>
-<div class="container_movie" style="display: flex; padding: 24px; justify-content: space-around;">
-  <% @bookmarks.each do |bookmark|%>
-    <div>
-      <h3><%= bookmark.movie.title %></h3>
-      <p><%= bookmark.movie.overview %></p>
-      <p>"<%= bookmark.comment %>"</p>
-    </div>
-  <% end %>
+  <%= link_to "Add Movie",  new_list_bookmark_path(@list), class: "btn btn-light"%>
+  <div class="container_movie">
+    <% @bookmarks.each do |bookmark|%>
+      <div class="card_movie">
+        <h3><%= bookmark.movie.title %></h3>
+        <p><%= bookmark.movie.overview %></p>
+        <p style="font-weight: bold; color: black; font-style: italic;">"<%= bookmark.comment %>"</p>
+        <%= link_to "Delete",
+              bookmark_path(bookmark),
+              method: :delete,
+              data: { confirm: "Are you sure?" } , class: "btn btn-light float-right"%>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Delete List",
+              list_path(@list),
+              method: :delete,
+              data: { confirm: "Are you sure?" } , class: "btn btn-light"%>
+  <%= link_to "Back", lists_path, class: "btn btn-light"%>
 </div>
-
-<%= link_to "Back", lists_path, class: "btn btn-light"%>
