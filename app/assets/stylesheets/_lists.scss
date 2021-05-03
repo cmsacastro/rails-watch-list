@@ -18,18 +18,19 @@ h1 {
 .container {
   margin-top: 48px;
   padding:: 24px;
-  background-color: white;
 }
 
 .container_list {
   display: flex;
   padding: 24px;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .card_list {
   position: relative;
   display: inline-block;
+  margin-bottom: 48px;
 }
   .card_list {
     img {
