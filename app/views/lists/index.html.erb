@@ -3,10 +3,10 @@
     <div class="container_list" >
       <% @lists.each do |list| %>
         <div class="card_list">
-          <%= cl_image_tag(list.image), list_path(list) %>
+          <%= cl_image_tag list.image.key %>
           <%= link_to list.name, list_path(list), id:"text_list" %>
         </div>
       <% end %>
     </div>
-    <%= link_to "Create a New List", new_list_path, class: "btn btn-light"%>
+    <%= link_to "New List", new_list_path, class: "btn btn-light"%>
   </div>
