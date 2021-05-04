@@ -3,7 +3,7 @@
     <div class="container_list" >
       <% @lists.each do |list| %>
         <div class="card_list">
-          <%= link_to image_tag(list.image), list_path(list) %>
+          <%#= link_to image_tag(list.image), list_path(list) %>
           <p id="text_list"> <%= list.name %> </p>
         </div>
       <% end %>
