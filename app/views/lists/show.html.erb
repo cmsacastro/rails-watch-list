@@ -5,13 +5,21 @@
   <div class="container_movie">
     <% @bookmarks.each do |bookmark|%>
       <div class="card_movie">
-        <h3><%= bookmark.movie.title %></h3>
-        <p><%= bookmark.movie.overview %></p>
-        <p style="font-weight: bold; color: black; font-style: italic;">"<%= bookmark.comment %>"</p>
-        <%= link_to "Delete",
+         <div class="card-category" style="height: 150px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bookmark.movie.image.key, height: 300, crop: :fill %>')">
+
+         </div>
+        <%#= cl_image_tag bookmark.movie.image.key, height: 300, width: 400, crop: :fill %>
+        <div>
+          <h3><%= bookmark.movie.title %></h3>
+          <p><%= bookmark.movie.overview %></p>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <p style="font-weight: bold; color: black; font-style: italic;">"<%= bookmark.comment %>"</p>
+          <%= link_to "Delete",
               bookmark_path(bookmark),
               method: :delete,
               data: { confirm: "Are you sure?" } , class: "btn btn-light float-right"%>
+        <div>
       </div>
     <% end %>
   </div>
